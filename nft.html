@@ -1,7 +1,35 @@
 <!DOCTYPE html>
 <head>
+<style>
+    @keyframes backgroundColorPalette {
+  0% {
+    background: #5465FF;
+  }
+  25% {
+    background: #E15A97;
+  }
+  50% {
+    background: #C2F970;
+  }
+  75% {
+    background: #6B2737;
+  }
+  100% {
+    background: #D3FCD5;
+  }
+}
+body {
+  animation-name: backgroundColorPalette;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+    </style>
+</head>
+
+    <body style="display: flex;justify-content: center;">
     <script>
-    let d = Math.floor(Math.random() * 206)+1;
+    let d = Math.floor(Math.random() * 12)+1;
     let S;
         
     switch(d) {
@@ -27,7 +55,7 @@
             S = "NeedsFemaleTouch.mp4";
             break;
         case 8: 
-            S = "NuptialFinanceTransfer.mp4";
+            S = "NuptialFinancialTransfer.mp4";
             break;
         case 9: 
             S = "NegativityFueledThread.mp4";
@@ -41,18 +69,26 @@
         case 12: 
             S = "NamasteFelineTeammate.mp4";
         break;
-        default:
-            S = "Throw"+d+".mp4";
-            break;
     }
     
     
-    function redirectFunc() {
-        window.location.href = "/"+S;
-      }
-      setTimeout("redirectFunc()", 500);
+     function render() {
+  const video = document.createElement('video');
+  video.muted = true;
+  video.autoplay = true;
+  video.loop = true;
+  video.setAttribute('playsinline', true);
+video.style = "height: auto, width: auto, align-content: center";
+
+  const source = document.createElement('source');
+  source.setAttribute('src', S);
+
+  video.appendChild(source);
+  document.body.appendChild(video);
+}
+render();
+
     </script>
-</head>
-<body>
-    <h1>Generating Throw</h1>
+
+
 </body>
