@@ -1,58 +1,71 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <script>
-    let d = Math.floor(Math.random() * 206)+1;
-    let S;
-        
-    switch(d) {
-            case 1:
-            S = "NeurosisFromTinder.mp4";
-            break;
-        case 2:
-            S = "NapsterFueledTerabyte.mp4";
-            break;
-        case 3:
-            S = "NinjaFighterTorso.mp4";
-            break;
-        case 4: 
-            S = "NotFindingTrudeau.mp4";
-            break;
-        case 5: 
-            S = "NaughtyFilmTrope.mp4";
-            break;
-        case 6: 
-            S = "NubileFeetTribute.mp4";
-            break;
-        case 7: 
-            S = "NeedsFemaleTouch.mp4";
-            break;
-        case 8: 
-            S = "NuptialFinanceTransfer.mp4";
-            break;
-        case 9: 
-            S = "NegativityFueledThread.mp4";
-            break;
-        case 10: 
-            S = "NuclearFamilyTime.mp4";
-            break;
-        case 11: 
-            S = "NaturallyFirmTits.mp4";
-            break;
-        case 12: 
-            S = "NamasteFelineTeammate.mp4";
-        break;
-        default:
-            S = "Throw"+d+".mp4";
-            break;
-    }
-    
-    
-    function redirectFunc() {
-        window.location.href = "/"+S;
-      }
-      setTimeout("redirectFunc()", 500);
-    </script>
+<style>
+:root {
+  --background: tan;
+  --dark: yellow;
+  --liquid: yellow;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+}
+
+.box {
+  position: relative;
+  background: var(--dark);
+  border: 0.25rem solid var(--dark);
+  height: 12rem;
+  width: 8rem;
+  outline: 0;
+  overflow: hidden; /* Set to none to see fill square outside box */
+}
+.box::before {
+  /*content: url(/images/st-white.svg); */
+  content: "VKV";
+  font-size: 2rem;
+  color: var(--background);
+  font-family: Arial, Helvetica, sans-serif; 
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box::after {
+  content: "";
+  position: absolute;
+  bottom: -50%; /* Center sauare */
+  left: -50%; /* Center sauare */
+  height: 200%;
+  width: 200%;
+  background-color: var(--background);
+  border-radius: 35%; /* Smooth edges to appear like liquid */
+  animation: spin 6s ease-in-out infinite; /* Set to forwards to freeze on last frame */
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100%) rotate(400deg);
+  }
+}
+    </style>
 </head>
-<body>
-    <h1>Generating Throw</h1>
-</body>
+ <body>
+    <div class="box"></div>
+  </body>
+</htnl>
